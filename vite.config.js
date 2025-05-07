@@ -16,7 +16,8 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    base: env.BASE_URL || "/",
+    // base: env.BASE_URL || "/ljmarquez-portfolio/",
+    base: "/ljmarquez-portfolio/",
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

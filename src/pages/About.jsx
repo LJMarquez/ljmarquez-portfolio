@@ -61,11 +61,16 @@ const About = () => {
 
               <p>
                 I have experience working with a client to develop work for them and am ready to use my technical skills
-                in a professional setting. I have multiple{" "}
+                in a professional setting. I have multiple {" "}
+                {/* {" "}
                 <Link to="/award-projects" className="about-link">
                   awards
-                </Link>{" "}
-                from the CTSO competitions I competed in my junior year of high school.
+                </Link>
+                {" "} */}
+
+                 awards
+
+                 from the CTSO competitions I competed in my junior year of high school.
               </p>
 
               <p>
@@ -114,6 +119,8 @@ const About = () => {
                 <li>Logo Design</li>
                 <li>Brand Identity</li>
                 <li>Print Design</li>
+                <li>Print Layout</li>
+                <li>RIP Software</li>
                 <li>UI/UX Design</li>
               </ul>
             </motion.div>
@@ -124,6 +131,9 @@ const About = () => {
               </h3>
               <ul className="skills-list">
                 <li>Problem Solving</li>
+                <li>Time Management</li>
+                <li>Attention to Detail</li>
+                <li>Adaptability</li>
                 <li>Team Collaboration</li>
                 <li>Project Management</li>
                 <li>Client Communication</li>
