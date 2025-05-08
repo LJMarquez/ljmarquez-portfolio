@@ -60,6 +60,22 @@ const Contact = () => {
                     <p>LJMarquez</p>
                   </div>
                 </a>
+
+                <a
+                  href="https://www.linkedin.com/in/leo-marquez-960598296/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-method"
+                >
+                  <div className="contact-method-icon">
+                    <i className="fab fa-linkedin"></i>
+                  </div>
+                  <div className="contact-method-content">
+                    <h3>LinkedIn</h3>
+                    <p>Leo Marquez</p>
+                  </div>
+                </a>
+
               </div>
             </div>
 

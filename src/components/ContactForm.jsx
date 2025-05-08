@@ -85,6 +85,8 @@ const ContactForm = () => {
         subject: "",
         message: "",
       })
+
+      alert("Message sent successfully! I'll get back to you soon.")
     } catch (error) {
       console.error("Error sending email:", error)
       setSubmitStatus({

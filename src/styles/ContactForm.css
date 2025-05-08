@@ -112,6 +112,10 @@
   border: 1px solid var(--danger);
 }
 
+#message {
+  resize: vertical;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

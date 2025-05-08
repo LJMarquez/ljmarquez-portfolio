@@ -67,6 +67,7 @@
   text-align: center;
   position: relative;
   z-index: 1;
+  margin-top: 5vh;
 }
 
 .glowing-text {
@@ -76,7 +77,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   text-shadow: 0 0 10px rgba(var(--accent-primary-rgb), 0.3);
   letter-spacing: 2px;
   position: relative;
@@ -118,6 +119,7 @@
 
 .project-type {
   background: rgba(var(--card-bg-rgb), 0.8);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 2.5rem;
@@ -133,9 +135,9 @@
   margin-bottom: 1.5rem;
   background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-t-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .fancy-title {
@@ -145,7 +147,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 1px;
 }
 
