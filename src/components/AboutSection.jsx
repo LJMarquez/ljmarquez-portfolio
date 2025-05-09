@@ -49,7 +49,8 @@ const AboutSection = () => {
               in a professional setting. I have multiple awards from the CTSO competitions I competed in my junior year
               of high school.
             </p>
-            <div className="mt-4">
+            <div className="mt-4 cta-container">
+            {/* <div> */}
               <Link to="/contact" className="hero-cta primary">
                 Let's Get Talking!
               </Link>
