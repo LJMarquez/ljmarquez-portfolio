@@ -16,13 +16,35 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  background-color: var(--bg-tertiary);
 }
 
-.project-image img {
+.project-image img,
+.project-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+.project-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.project-video.hidden {
+  opacity: 0;
+}
+
+.project-video.loaded {
+  opacity: 1;
+}
+
+.fallback-image {
+  position: relative;
+  z-index: 0;
 }
 
 .project-overlay {
@@ -38,6 +60,7 @@
   justify-content: center;
   padding-bottom: 1.5rem;
   transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 .project-card:hover .project-overlay {
@@ -94,6 +117,30 @@
   line-height: 1.6;
 }
 
+.package-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.package-item-button {
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-tertiary) 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-item-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(var(--accent-secondary-rgb), 0.3);
+}
+
 .project-links {
   display: flex;
   justify-content: space-between;
@@ -138,6 +185,7 @@
 /* Modal styles */
 .modal-content {
   background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-secondary) 100%);
+  max-width: 800px;
 }
 
 .modal-title {
@@ -148,13 +196,34 @@
   text-fill-color: transparent;
 }
 
+.modal-package-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.modal-package-image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
 .modal-button {
   background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
 }
 
 .modal-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(var(--accent-primary-rgb), 0.4);
+  color: white;
 }

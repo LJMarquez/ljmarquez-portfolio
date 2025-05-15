@@ -48,6 +48,7 @@ export const projectData = [
       "This game was built using HTML, CSS, and JavaScript and encompasses all of the topics I have learned in my first semester of West-MEC. It is a typing/adventure game (mostly) complete with audio, interactivity, and just a few bugs. It utilizes the JS canvas, eventlisteners, inputs, arrays, and loops which append elements to the DOM. This is just scraping the surface of what this game covers, but I plan to make my projects more in-depth and entertaining in the future.",
     repoLink: "https://github.com/LJMarquez/Culinary-Showdown",
     coverImg: "showdown-cover.jpg",
+    // coverImg: "culinary-showdown.gif",
     promotionalPackageItems: null,
     awards: null,
   },
@@ -144,10 +145,10 @@ export const projectData = [
   },
   {
     type: "graphic design",
-    title: "Chameleon Designs Advertising",
+    title: "Chameleon Designs",
     id: "chameleon-designs",
     projectLink: "logo.pdf",
-    header: "Crafting Your Vision into Colorful Reality!",
+    header: "Your Visions into Colorful Realities!",
     description:
       "In this project, me and three other people were put in a group and tasked with making a mock up graphics advertising company. We went through multiple steps to procure the final outcome but I'll briefly lay out the steps. We assigned roles to each member of the group and defined our target audience, our mission, company name, slogan, etc. After that we came up with multiple ideas logos and narrowed it down to the one I made and made multiple variations of it. Then we were tasked with designing an office space and the costs of rent and running our business (consumables, tech, etc). Then we developed a promotional package including business cards, letterheads, etc. Throughout the entire process we wrote up memos to communicate with our client (our teacher) to show us what communication looks like in the professional world.",
     repoLink: null,
