@@ -79,7 +79,11 @@ const Contact = () => {
               </div>
             </div>
 
-            <ContactForm />
+
+            <div>
+              <h2 style={{ marginBottom: "2rem" }}>Leave A Message</h2>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

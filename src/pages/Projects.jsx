@@ -86,10 +86,10 @@ const Projects = () => {
             <motion.div
               className="project-type"
               onClick={() => handleProjectTypeClick("code")}
-              whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,0,0.2)" }}
+              whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,200,0.4)" }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.1, delay: 0.4 }}
             >
               <div className="project-type-icon">
                 <i className="fas fa-code"></i>
@@ -101,10 +101,10 @@ const Projects = () => {
             <motion.div
               className="project-type"
               onClick={() => handleProjectTypeClick("design")}
-              whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,0,0.2)" }}
+              whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0,0,200,0.4)" }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
+              transition={{ duration: 0.1, delay: 0.4 }}
             >
               <div className="project-type-icon">
                 <i className="fas fa-bezier-curve"></i>

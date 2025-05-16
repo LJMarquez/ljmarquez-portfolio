@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import "../styles/ProjectCard.css"
 
 const ProjectCard = ({ project }) => {
@@ -11,8 +11,8 @@ const ProjectCard = ({ project }) => {
   const [videoError, setVideoError] = useState(false)
   const imageIntervalRef = useRef(null)
   const videoRef = useRef(null)
+  const modalRef = useRef(null)
 
-  // Handle cycling through images for graphic design projects
   useEffect(() => {
     if (isHovered && project.type === "graphic design" && project.promotionalPackageItems) {
       // Create an array of all images including the cover image
@@ -44,11 +44,44 @@ const ProjectCard = ({ project }) => {
         })
       } else {
         videoRef.current.pause()
-        // To reset the video instead of pausing, uncomment the line below:
         videoRef.current.currentTime = 0;
       }
     }
   }, [isHovered, videoLoaded, videoError])
+
+  // Handle clicking outside the modal to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalOpen && modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal()
+      }
+    }
+
+    if (modalOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [modalOpen])
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (modalOpen && event.key === "Escape") {
+        closeModal()
+      }
+    }
+
+    if (modalOpen) {
+      document.addEventListener("keydown", handleEscKey)
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey)
+    }
+  }, [modalOpen])
 
   const openModal = () => {
     setModalOpen(true)
@@ -201,55 +234,61 @@ const ProjectCard = ({ project }) => {
         </div>
       </motion.div>
 
-      {modalOpen && (
-        <div className="modal active" onClick={closeModal}>
-          <motion.div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3 }}
-          >
-            <button className="modal-close" onClick={closeModal}>
-              <i className="fas fa-times"></i>
-            </button>
+      <AnimatePresence>
+        {modalOpen && (
+          <div className="modal active" onClick={closeModal}>
+            <motion.div
+              className="modal-content"
+              ref={modalRef}
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -50, scale: 0.95 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <button className="modal-close" onClick={closeModal}>
+                <i className="fas fa-times"></i>
+              </button>
 
-            {selectedPackageItem ? (
-              <>
-                <h2 className="modal-title">{selectedPackageItem.title}</h2>
-                <div className="modal-package-content">
-                  <img
-                    src={`/assets/graphic-design-projects/${project.id}/${selectedPackageItem.img}`}
-                    alt={selectedPackageItem.title}
-                    className="modal-package-image"
-                  />
+              {selectedPackageItem ? (
+                <>
+                  <h2 className="modal-title">{selectedPackageItem.title}</h2>
+                  <div className="modal-package-content">
+                    <img
+                      src={`/assets/graphic-design-projects/${project.id}/${selectedPackageItem.img}`}
+                      alt={selectedPackageItem.title}
+                      className="modal-package-image"
+                    />
+                    <div className="modal-footer">
+                      <a
+                        className="modal-button"
+                        href={`/assets/graphic-design-projects/${project.id}/${selectedPackageItem.link}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Full {selectedPackageItem.title}
+                      </a>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="modal-title">{project.title}</h2>
+                  <div className="modal-body" dangerouslySetInnerHTML={{ __html: project.description }} />
                   <div className="modal-footer">
-                    <a
-                      className="modal-button"
-                      href={`/assets/graphic-design-projects/${project.id}/${selectedPackageItem.link}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Full {selectedPackageItem.title}
+                    <a className="modal-button" href={project.projectLink} target="_blank" rel="noopener noreferrer">
+                      View Project
+                    </a>
+                    <a className="modal-button" href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                      View Code
                     </a>
                   </div>
-                </div>
-              </>
-            ) : (
-              <>
-                <h2 className="modal-title">{project.title}</h2>
-                <div className="modal-body" dangerouslySetInnerHTML={{ __html: project.description }} />
-                <div className="modal-footer">
-                  <a className="modal-button" href={project.projectLink} target="_blank" rel="noopener noreferrer">
-                    View Project
-                  </a>
-                </div>
-              </>
-            )}
-          </motion.div>
-        </div>
-      )}
+                </>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
